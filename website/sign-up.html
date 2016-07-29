@@ -1,0 +1,126 @@
+<top-nav-bar></top-nav-bar>
+
+<!-- Main Content Starts -->
+<div class="row"  data-ng-controller="signUpController" data-z="0.5" >
+    <div class="col-md-6 col-md-offset-3 col-lg-offset-3 col-lg-6 col-sm-10 col-sm-offset-2 col-xs-12 text-center">
+        <div id="signup-intro" ng-hide="signUpForm"><h1>Join TalentScreen!</h1></div>
+        <div class="background-line" ng-hide="signUpForm"><h4>CANDIDATE ONLY</h4></div>
+        <div class="sms-signup text-center" id="signup"  ng-hide="signUpForm">
+            <a  ui-sref="login" class="btn btn-block btn-lg btn-social btn-github">
+                <i class="fa fa-github"></i>Sign Up with Github
+            </a>
+            <a  ui-sref="login" class="btn btn-block btn-lg btn-social btn-facebook">
+                <i class="fa fa-facebook"></i>Sign Up with Facebook
+            </a>
+            <a  ui-sref="login" class="btn btn-lg btn-block btn-social btn-google">
+                <i class="fa fa-google"></i>Sign Up with Google
+            </a>
+            <a  ui-sref="login" class="btn btn-lg btn-block btn-social btn-linkedin">
+                <i class="fa fa-linkedin"></i>Sign Up with LinkedIn
+            </a>
+        </div>
+
+        <div class="background-line" ng-hide="signUpForm"> <h4>EMPLOYER OR CANDIDATE WITH EMAIL SIGN UP</h4></div>
+        <form id="mySignUpForm" name="mySignUpForm" ng-submit="signUp()" ng-hide="signUpForm" role="form">
+            <div class="email-signup form-group text-left">
+                <div ng-class="{ 'error' : mySignUpForm.emailAddress.$invalid }" class="controls inner-addon left-addon">
+                    <i class="fa fa-envelope"></i>
+                    <input type="email" id="emailAddress" name="emailAddress" class="form-control" ng-model="emailAddress" placeholder="Email Address" required email-validation>
+                    <!--<span class="ma-form-highlight"></span><span class="ma-form-bar"></span>-->
+                </div>
+                <div class="help-inline">
+                    <span ng-show="!!mySignUpForm.emailAddress.$error.isBlank">Email Required</span>
+                    <span ng-show="!!mySignUpForm.emailAddress.$error.invalidChars">Invalid Email Address</span>
+                </div>
+                <br>
+                <div ng-class="{error:!mySignUpForm.ePassword.$valid}" class="inner-addon left-addon">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" id="ePassword" name="ePassword" class="form-control" ng-model="ePassword" placeholder="Password" required password-check>
+                </div>
+
+                <div class="help-inline">
+                    <span ng-show="!!mySignUpForm.ePassword.$error.isBlank">Password Required.</span>
+                    <span ng-show="!!mySignUpForm.ePassword.$error.isWeak">Must contain one upper &amp; lower case letter and a non-letter (number or symbol.)</span>
+                    <span ng-show="!!mySignUpForm.ePassword.$error.invalidLen">Must be 8-20 characters.</span>
+                </div>
+                <br />
+                <div ng-class="{error:!mySignUpForm.mPassword.$valid}" class="inner-addon left-addon">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" id="mPassword" name="mPassword" class="form-control" ng-model="mPassword" placeholder="Confirm Password" required password-match>
+                </div>
+
+                <div class="help-inline">
+                    <span ng-show="!!mySignUpForm.mPassword.$error.isBlank">Confirmation Required.</span>
+                    <span ng-show="!!mySignUpForm.mPassword.$error.noMatch">Passwords don't match.</span>
+                </div>
+                <div class="signup-agreement text-left">
+                    <div class="checkbox checkbox-success" ng-init="candidateCheckBox=true">
+                        <input type="checkbox" id="candidate" ng-model="candidateCheckBox">
+                        <label for="candidate">I am an Employer</label>
+                    </div>
+                    <div class="checkbox checkbox-success">
+                        <input type="checkbox" id="terms" ng-model="termsCheckBox">
+                        <!--<input type="checkbox" id="terms" ng-model="termsCheckBox" required>-->
+                        <label for="terms">I Agree with <a href="# ">Terms &amp; Conditions!</a></label>
+                    </div>
+                    <br/>
+                    <label id="alertmessage" style="color: red" name="alertmessage" class="form-control" ng-show="alertmessage"> Please accept Terms & Conditions!</label>
+                    <!--<label id="success" name="successmessage" class="form-control" ng-show="successmessage"> Successfully Register Please Activate Your Account</label>-->
+                </div>
+            </div>
+
+            <!--<div class="signup-agreement text-left">-->
+            <!--<div class="checkbox" ng-init="candidateCheckBox=true">-->
+            <!--<input type="checkbox" id="candidate"  ng-model="candidateCheckBox">-->
+            <!--<label for="candidate">I am an Employer</label>-->
+            <!--</div>-->
+            <!--<div class="checkbox" ng-init="termsCheckBox=required">-->
+            <!--<input type="checkbox" id="terms"  ng-model="termsCheckBox">-->
+            <!--<label for="terms">I Agree with <a href="# ">Terms &amp; Conditions!</a></label>-->
+            <!--</div>-->
+            <!--<br><br>-->
+            <!--<div class="checkbox" ng-init="candidateCheckBox=true">-->
+            <!--<input type="checkbox" id="candidateiii" ng-model="candidateCheckBox">-->
+            <!--<label for="candidate">I am an Employer</label>-->
+            <!--</div>-->
+
+            <!--<div ng-init="termsCheckBox=required">-->
+            <!--<input type="checkbox" id="terms" ng-model="termsCheckBox" required>-->
+            <!--<label for="terms">I Agree with <a href="# ">Terms &amp; Conditions!</a></label>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" value="Create an Account" >
+                <!--<input type="submit" class="btn btn-primary" ng-disabled="!formAllGood()"  value="Create an Account" >-->
+            </div>
+        </form>
+        <!-- ENd of Form -->
+
+        <div id="signup-msg" ng-hide="Message" style="background-color: white">
+            <form name="signup">
+            <h4 align="center"><strong>All done!</strong></h4>
+            <hr>
+            <P>We've also sent a verification code to your email.please enter the code
+                to verify your account so we can send you a password reminder if you need it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </p>
+            <br/>
+            <div class="form-group form-control-material">
+                <input type="text" class="form-control" name="emailActiveReference" id="emailActiveReference" placeholder="Reference Code" ng-model="emailActiveReference" required reference-code-check>
+                <span class="ma-form-highlight"></span><span class="ma-form-bar"></span>
+                <label for="emailActiveReference">Reference Code</label>
+            </div><br/>
+                <label ng-show="codeerrorshow" style="color:red" >{{codeerror}}</label>
+                <div class="help-inline">
+                    <span ng-show="!!signup.emailActiveReference.$error.isBlank">Code Required</span>
+                    <span ng-show="!!signup.emailActiveReference.$error.invalidLen">Invalid Code</span>
+                </div>
+            <div align="right">
+                <a class="btn btn-primary" type="submit" ng-click="emailActiveReferenceSubmit()">Activate Email </a>
+            </div>
+            </form>
+        </div>
+        <div class="bottomSpace"></div>
+    </div><!-- end of col -->
+</div> <!-- end of row -->
+<footer class="footer">
+    <footer></footer>
+</footer>

@@ -1,0 +1,20 @@
+{
+  "name": "talentscreen",
+  "version": "0.1.0",
+  "description": "talentscreen",
+  "main": "index.js",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.5.0",
+    "grunt-nightwatch": "^0.5.3",
+    "selenium-chromedriver": "0.0.2"
+  },
+  "scripts": {
+    "preinstall": "npm install nightwatch -g",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Innovapath",
+  "license": "ISC"
+}

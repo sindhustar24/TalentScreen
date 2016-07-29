@@ -1,0 +1,75 @@
+<div class="panel panel-default paper-shadow" ng-show="codingQuizBegin" data-z="0.5" style="border-color: lightcyan;margin-top:-2px; ">
+
+    <div class="panel panel-default" ng-hide="questioncountshow"style="border-bottom-color: lightcyan;height:36px;border-top-color: white;border-left-color: white;   border-right-color: white;">
+        <div class="media v-middle" id="typediv">
+            <div class="row" id="secondrow" style="margin-top:6px;">
+                <div class="hidden-xs col-md-3 col-xs-3 col-sm-3" style="font-size:17px;padding-left: 24px; "><strong>Question:{{questionNo}}/10</strong></div>
+                <div class=" col-md-7 col-xs-8 col-sm-7"> <div class=" progress"style="margin-left: 16px;">
+                <span class="progress-bar progress-bar-striped active" role="progressbar" ng-model="determinateValue"
+                      aria-valuemin="0" aria-valuemax="100" ng-style="{ 'width': determinateValue + '%'}">{{questionNo}}/10</span>
+                    <span class="sr-only">{{determinateValue}}% completed</span>
+                    </span>
+                </div></div>
+                <div class="col-md-2 col-xs-4 col-sm-2 hidden-xs"align="right"   style="font-size:17px; color:red; padding-right: 28px;"><span class="glyphicon glyphicon-time"style="top: 3px;"  ></span>
+                    <blink data-speed="475" ng-hide="timerBlink"><strong>{{counter|formatTimer}}</strong></blink>
+                    <span ng-hide="normalTimer"><strong>{{counter|formatTimer}}</strong></span></div>
+
+                <div class="col-md-2 col-xs-4 col-sm-2 visible-xs" id="timercontrol" style="font-size:17px; color:red; "><span class="glyphicon glyphicon-time"style="top: 3px;"  ></span>
+                    <blink data-speed="475" ng-hide="timerBlink"><strong>{{counter|formatTimer}}</strong></blink>
+                    <span ng-hide="normalTimer"><strong>{{counter|formatTimer}}</strong></span></div>
+
+            </div>
+        </div>
+
+    </div>
+        <div class="hidden-xs panel-body">
+            <p ng-text-truncate="questionText" style="font-size: 15px;"
+               ng-tt-chars-threshold="120" ></p>
+
+        </div>
+    <div class="visible-xs  panel-body">
+        <p ng-text-truncate="questionText" style="font-size: 15px;"
+           ng-tt-chars-threshold="50" ></p>
+
+    </div>
+
+    <hr style="border-color:lightcyan;">
+<div class="panel-body" data-z="0.5" style="margin-top:-15px;">
+    <div class="media">
+
+        <div class="media-body" id="codingbody" ng-show="codingQuizBegin">
+            <div class="form-group">
+                <div>
+                    <section>
+                                            <textarea ui-codemirror="cmOption" ng-model="cmModel" ui-refresh='isSomething'
+                                                      style="width: 70%; height:100px"></textarea>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class=" col-xs-12 panel-footer"style="border-top: lightcyan;margin-top: 5px;">
+
+    <div class="text-right" style="margin-right:5px;">
+        <button class="btn btn-success" ng-click="compile()"><i
+                class="fa fa-play fa-fw"></i> Run It
+        </button>
+        <button class="btn btn-primary" ng-click="nextQuestion()" ng-hide="count14"><i
+                class="fa fa-forward fa-fw"></i> Next Question
+        </button>
+        <button class="btn btn-success" ng-click="finishQuestion()"
+                ng-hide="count15"> Finish
+        </button>
+    </div>
+
+</div>
+</div>
+<!--<div class="panel panel-default" style="border-color:lightcyan;">-->
+<div class="panel-body" ng-show="codingQuizBeginresult">
+    <span style="color:green;">Result:{{result}}</span><br/>
+    <span style="color:blue;">Information:{{info}}</span><br/>
+</div>
+<!--
+</div>-->

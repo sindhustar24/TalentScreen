@@ -1,0 +1,118 @@
+<student-dashboard></student-dashboard>
+
+<div class="container" data-ng-controller="codingQuizController">
+    <div class="page-section">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="panel panel-default" ng-hide="questioncountshow"style="margin-top:-7px; border-color:lightcyan;margin-bottom: 10px;">
+
+
+                    <div class="row" id="codingfirstrow">
+                                <div class=" col-md-4 col-xs-6 col-sm-4"  style="padding-left: 28px;"><p class="text-headline margin-none "style="font-weight:bold;font-size: 18px;">Coding Quiz</p>
+                                </div>
+                                <div class=" col-md-4 col-xs-4  hidden-xs hidden-sm-down"align="center" ><p class="text-headline margin-none " style="font-weight:bold;font-size: 18px;padding-right:57px;">Total Questions: 10</p>
+                                </div>
+                                <div class=" col-md-4 col-xs-6 col-sm-4 hidden-xs"align="right" ><p class="text-headline margin-none " style="font-weight:bold;padding-right:20px;font-size: 18px;">{{subjectName}}</p>
+                                </div>
+                        <div class=" col-md-4 col-xs-6 col-sm-4 visible-xs"align="center" ><p class="text-headline margin-none " style="font-weight:bold;font-size: 18px;">{{subjectName}}</p>
+                        </div>
+                        </div>
+
+
+
+
+                </div>
+                <div class="panel panel-default" ng-show="codingHeader">
+                    <div class="media v-middle">
+                        <div class="media-left">
+                            <div class="bg-blue-400 text-white">
+                                <div class="panel-body">
+                                    <i class="fa fa-puzzle-piece fa-fw fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-body" align="center">
+                            <h4 class="text-headline margin-none" style=" font-family: arial,sans-serif;color: #42a5f5;font-weight: bolder;padding-bottom:15px;"  >CODING QUIZ</h4>
+                        </div>
+                        <div class="media-right">
+                            <div class="text-right text-headline text-red-1000" >
+                                <h4 style="padding-right: 20px;font-family: arial,sans-serif; color:#42a5f5;font-weight: bolder;text-align: center"><strong>{{subjectName}}</strong></h4></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-toggle="isotope">
+                    <div class="col-xs-12 col-lg-12">
+                        <div class="panel panel-default paper-shadow" data-z="0.5" style="margin-top:-11px; ">
+                            <quiz-subject></quiz-subject>
+                            <quiz-level></quiz-level>
+                            <div class="panel-body" ng-show="quizStartAccepted">
+                                <ul class="list-group">
+                                    <li class="list-group-item media v-middle">
+                                        <div class="media-body"  style="font-family: arial,sans-serif;color:forestgreen; font-size: 1.0rem ; ">
+                                            <p class="text-justify">
+                                                Ready to use code editor to code,compile,execute and share
+                                                your coding experience in java,html,javascript and many other languages.
+                                            </p>
+                                            <p class="text-center lead"style="font-family: arial,sans-serif; font-size: 1.0rem ; ">Check the check box to agree & click appropirate button to Continue!!!</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                             <!--   <div>
+                                    <input style="color: #0a2ffe" type="checkbox" name="vehicle" value="Bike" ng-click="toggle()"><span style="color: blue">I agree to the terms and condiations</span><br>
+                                </div>-->
+                                <div>
+                                    <label><input style="color: #42a5f5;float: left; margin-top: 4px;vertical-align: middle;position: relative;bottom: 1px;right: 2px;" type="checkbox" ng-click="toggle()"><span style="color: #2196f3">I agree to the terms and conditions</span><br></label>
+                                </div>
+                                <div ng-hide="myVar" class="panel-footer text-right">
+                                    <button   class="btn btn-primary paper-shadow relative" data-z="0" data-hover-z="1" data-animated ui-sref="website-student.demoCodingQuiz"> Demo</button>
+                                    <!--<md-button class="md-primary md-raised" ng-click="showConfirm($event)" >
+                                        Confirm Dialog
+                                    </md-button>-->
+                                    <button ng-click="start()" class="btn btn-warning paper-shadow relative" data-z="0" data-hover-z="1" data-animated ui-sref="website-student.tour4Coding">Take Tour</button>
+                                    <button ng-click="startQuiz()" class="btn btn-success paper-shadow relative"
+                                            data-z="0" data-hover-z="1" data-animated ui-sref="#"> Start
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div class="panel-body" ng-show="countDown">
+                                <div class="text-center text-headline text-red-1000" style="color: #00635a;font-family: FontMfizz;font-size: 30px;">
+                                    <circular-progress
+                                            value="timer.value"
+                                            max="timer.max"
+                                            iterations="{{timer.iterations}}"
+                                            animation="{{timer.animation}}"
+                                            label="{{timer.label}}"
+                                            ></circular-progress>
+                                    <!--<blink data-speed="500"><strong style="text-shadow: 0 0 0.9em #87F, 0 0 0.9em #87F,0 0 0.2em #87F">{{counter}}</strong></blink>-->
+                                </div>
+                                <div class="panel-footer text-right">
+                                    <button ng-click="cancelQuiz()" class="btn btn-warning paper-shadow relative"
+                                            data-z="0" data-hover-z="1" data-animated ui-sref="#"> Cancel
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row" data-toggle="isotope">
+                                <div class="col-xs-12 col-lg-12" >
+                                    <div class="panel panel-default paper-shadow"ng-show="morediv" data-z="0.5"style="border-color:lightcyan;">
+                            <coding-quiz></coding-quiz>
+
+                            <!--<quiz-results></quiz-results>-->
+
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <br/>
+                <br/>
+            </div>
+            <div class="col-md-3 col-xs-12 ">
+                <student-side-menu></student-side-menu>
+            </div>
+        </div>
+    </div>
+</div>

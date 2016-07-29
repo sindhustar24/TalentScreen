@@ -1,0 +1,62 @@
+<!--
+<div class="ibox-content" style="background-color: white">
+    <table class="table text-subhead v-middle">
+        <tr>
+            <td style="width:70%">
+                <div class="row m-b-sm m-t-sm">
+                    <div class="col-md-8">Attempted : {{myChalleneData.atempted}}</div>
+                    <div class="col-md-4">CorrectAnswers:
+                        {{myChalleneData.correctanswers}}
+                    </div>
+
+                </div>
+                <div class="row m-b-sm m-t-sm">
+                    <div class="col-md-8">TotalTimeTaken :
+                        {{myChalleneData.totalTimeTaken}}
+                    </div>
+                    <div class="col-md-4">TotalTime : {{myChalleneData.totaltime}}
+                    </div>
+                </div>
+                <div class="row m-b-sm m-t-sm">
+
+                    &lt;!&ndash;<div class="col-md-12">Completed :<div class="progress progress-mini" id="prograss">
+                        <div  ng-style="{ 'width': myChalleneData.totalTimeTaken/myChalleneData.totaltime *100+ '%'}" class="progress-bar" style="color: black">{{(myChalleneData.totalTimeTaken/myChalleneData.totaltime*100)%100 | number:2}}%</div>
+                    </div>
+                    </div>&ndash;&gt;
+                </div>
+
+            </td>
+            <td style="width:30%">
+                <div class="row m-b-sm m-t-sm">
+                    <div class="col-md-12">
+                        <a ui-sref="#" ng-change="showVideo()"></a>
+                        <div ng-if="myChalleneData.quizdetails.quiztypename == 'Choice'" style="width:100px;height: 100px" >
+                            <pie-chart data="myChalleneData.pieData" options="options"></pie-chart>
+                        </div>
+
+                        <div ng-if="myChalleneData.quizdetails.quiztypename == 'Video'">
+                            <iframe width="200" height="100"
+                                    src="http://www.youtube.com/embed/hgrc6WJ2VRI">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>-->
+{{videoid}}
+<div class="ibox-content" style="background-color: white">
+    <div class="row m-b-sm m-t-sm">
+        <div class="col-md-8">
+            <iframe width="500" height="450"  src="http://www.youtube.com/embed/hgrc6WJ2VRI"></iframe>
+            <!--<video id="gum-local" ng-src="{{videoid}}"  autoplay  >
+
+            </video> -->
+
+<!--<iframe width="200" height="100"
+        src="http://www.youtube.com/embed/hgrc6WJ2VRI">
+</iframe>-->
+            </div></div>
+</div>

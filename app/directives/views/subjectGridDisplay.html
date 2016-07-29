@@ -1,0 +1,112 @@
+<div class="item col-xs-12 col-sm-6 col-lg-4"  data-ng-repeat="data in logEventFilter = (dataNew | orderBy:orderByValue | filter:test | limitTo:limit)">
+    <div class="contact-box">
+        <a href="profile.html">
+            <div class="col-sm-4">
+                <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/images/people/50/child-1.jpg">
+                <div  class="hidden-xs text-center" id="imageLike">
+                    <div class="m-t-xs font-bold">
+                        <a href="#">
+                            <i id="thumsUpSymbol" class="fa fa-thumbs-up" title="like" ng-click="like()"> </i>
+                        </a>
+                        <div title="No of people liked">32</div>
+                    </div>
+                </div>
+                <div  class="visible-xs text-center" id="imageLike1">
+                    <div class="m-t-xs font-bold">
+                        <a href="#">
+                            <i id="thumsUpSymbols" class="fa fa-thumbs-up" title="like" ng-click="like()"> </i>
+                        </a>
+                        <div title="No of people liked">32</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <h3><strong>{{data.name}}</strong></h3>
+                <i class="fa fa-calendar "></i> <a href="#">{{data.date|date}}</a>
+                <address>
+                    <i class="fa fa-user"></i> <a href="#" title="author">TalentScreen</a>
+                </address>
+            </div>
+            <div class="clearfix"></div>
+        </a>
+        <div class="hidden-xs" ng-controller="MainCtrl" id="popup">
+            <a ng-click="toggleModal('Success')"><i>details</i></a>
+            <modal visible="showModal">
+                subject Description :{{data.description}}
+                <div class="page-section">
+                    <div class="width-350 width-300-md width-100pc-xs paragraph-inline">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube-nocookie.com/embed/Ycv5fNd4AeM?rel=0"></iframe>
+                        </div>
+                    </div>
+                    <p>
+                        <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad aperiam autem cumque deleniti dicta iusto laboriosam laudantium omnis, possimus praesentium provident quam quas, sapiente sint, ut! Adipisci aliquid assumenda consequuntur cupiditate deleniti dicta dolore dolorem
+                        <strong>dolores enim </strong>eos hic illo inventore iure libero magnam minima minus obcaecati optio pariatur porro quibusdam quos reiciendis, sapiente sint veritatis. Eveniet in magni sunt?</p>
+                    <br>
+                    <p class="margin-none">
+                        <span class="label bg-gray-dark">New</span>
+                        <span class="label label-grey-200">WordPress</span>
+                        <span class="label label-grey-200">Beginner</span>
+                    </p>
+                </div>
+            </modal>
+        </div>
+        <div class="visible-xs" ng-controller="MainCtrl" id="popup1">
+            <a ng-click="toggleModal('Success')"><i>details</i></a>
+            <modal visible="showModal">
+                subject Description :{{data.description}}
+                <div class="page-section">
+                    <div class="width-350 width-300-md width-100pc-xs paragraph-inline">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube-nocookie.com/embed/Ycv5fNd4AeM?rel=0"></iframe>
+                        </div>
+                    </div>
+                    <p>
+                        <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad aperiam autem cumque deleniti dicta iusto laboriosam laudantium omnis, possimus praesentium provident quam quas, sapiente sint, ut! Adipisci aliquid assumenda consequuntur cupiditate deleniti dicta dolore dolorem
+                        <strong>dolores enim </strong>eos hic illo inventore iure libero magnam minima minus obcaecati optio pariatur porro quibusdam quos reiciendis, sapiente sint veritatis. Eveniet in magni sunt?</p>
+                    <br>
+                    <p class="margin-none">
+                        <span class="label bg-gray-dark">New</span>
+                        <span class="label label-grey-200">WordPress</span>
+                        <span class="label label-grey-200">Beginner</span>
+                    </p>
+                </div>
+            </modal>
+        </div>
+    </div>
+        </div>
+<style>
+    .contact-box {
+        background-color: #ffffff;
+        border: 1px solid #e7eaec;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    div {
+        display: block;
+    }
+    .text-center {
+        text-align: center;
+    }
+    #thumsUpSymbol{
+        font-size: x-large;
+    }
+    #imageLike{
+        margin-right: 23px;
+        margin-top: 23px;
+    }
+    #imageLike1{
+        margin-left: 147px;
+    }
+    #popup{
+        margin-left: 273px;
+    }
+</style>
+<footer class="footer">
+    <footer></footer>
+</footer>

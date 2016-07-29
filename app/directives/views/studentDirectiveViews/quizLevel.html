@@ -1,0 +1,27 @@
+<div class="panel-body" ng-show="quizLevels">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" style="font-size:large;font-family: FontAwesome; color:black;font-weight: bolder;">Select Quiz Level</label>
+        <div class="col-sm-9">
+
+            <ui-select ng-model="selectedlevel" search-enabled="false" ng-change="selectLevelChanged({{$select.selected}})" theme="select2" class="form-control" title="Choose a quiz">
+                <ui-select-match placeholder="Select level">{{$select.selected.name}}<span><i class="fa fa-fw fa-caret-down"></i></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in levels | filter: $select.search">
+                    <span ng-bind-html="item.name | highlight: $select.search"></span>
+                </ui-select-choices>
+            </ui-select>
+
+           <!-- <select name="selectType" ng-model="selectedLevel"
+                    ng-change="selectLevelChanged()" class="form-control input-lg select2"
+                    data-live-search="False" data-size="5">
+                <option ng-repeat="level in levels" value="{{level.id}}">
+                    {{level.name}}
+                </option>
+            </select>-->
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <footer></footer>
+</footer>

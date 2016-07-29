@@ -1,0 +1,63 @@
+<student-dashboard></student-dashboard>
+
+<div class="container" data-ng-controller="demoquizController">
+    <div class="page-section">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                    <div class="media">
+                        <h4 class=" " align="center"><p class="text-headline  " style="font-weight:bold;color: #1b93f3;
+                                                        height: 26px;
+                                                        margin-top: 10px;">CHOICE QUIZ DEMO</p>
+                        </h4>
+
+                    </div>
+
+                    <div class="row" data-toggle="isotope">
+                        <div class="item col-xs-12 col-lg-12" style="top: -20px;">
+                            <div class="" data-z="0.5" style="margin-top: 0px;">
+
+                                <div class="panel-body" ng-show="countDown">
+
+                                <div class="text-center text-headline text-red-1000" style="color: #00635a;font-family: FontMfizz;font-size: 30px;">
+                                        <!--<blink data-speed="500"><strong style="text-shadow: 0 0 0.9em #87F, 0 0 0.9em #87F,0 0 0.2em #87F">{{counter}}</strong></blink>-->
+                                    <circular-progress
+                                            value="timer.value"
+                                            max="timer.max"
+                                            iterations="{{timer.iterations}}"
+                                            animation="{{timer.animation}}"
+                                            label="{{timer.label}}"
+                                    ></circular-progress>
+                                    </div>
+                                    <div class="panel-footer text-right">
+                                        <button ng-click="cancelQuiz()" class="btn btn-warning paper-shadow relative"
+                                                data-z="0" data-hover-z="1" data-animated ui-sref="#"> Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 20px">
+                                    <demochoice-quiz></demochoice-quiz>
+                                    <!-- <choice-quiz></choice-quiz>-->
+                                    <quiz-results></quiz-results>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-3 hidden-xs">
+                <student-side-menu></student-side-menu>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

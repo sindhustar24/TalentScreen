@@ -1,0 +1,240 @@
+<div class="panel panel-default paper-shadow" data-z="0.5"
+     data-ng-repeat="data in logEventFilter = (dataNew | orderBy:orderByValue | filter:test | limitTo:limit)">
+    <div class="vote-item">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="vote-actions">
+                    <a href="#">
+                        <i class="fa fa-chevron-up" title="like" ng-click="like()"> </i>
+                    </a>
+                    <div title="No of people liked">320000</div>
+                    <a href="#">
+                        <i class="fa fa-chevron-down"> </i>
+                    </a>
+                </div>
+                <a href="#" class="vote-title">
+                    {{data.name}}
+                </a>
+                <div class="vote-info">
+                    <i class="fa fa-calendar "></i> <a href="#">{{data.date|date}}</a>
+                    <i class="fa fa-user"></i> <a href="#" title="author">TalentScreen</a>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="vote-icon">
+                    <i class="{{data.icon_class}}"> </i>
+                </div>
+            </div>
+            <div ng-controller="MainCtrl">
+                <a ng-click="toggleModal('Success')"><i>details</i></a>
+                <modal visible="showModal">
+                    subject Description :{{data.description}}
+                    <div class="page-section">
+                        <div class="width-350 width-300-md width-100pc-xs paragraph-inline">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="//www.youtube-nocookie.com/embed/Ycv5fNd4AeM?rel=0"></iframe>
+                            </div>
+                        </div>
+                        <p>
+                            <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad aperiam autem cumque deleniti dicta iusto laboriosam laudantium omnis, possimus praesentium provident quam quas, sapiente sint, ut! Adipisci aliquid assumenda consequuntur cupiditate deleniti dicta dolore dolorem
+                            <strong>dolores enim </strong>eos hic illo inventore iure libero magnam minima minus obcaecati optio pariatur porro quibusdam quos reiciendis, sapiente sint veritatis. Eveniet in magni sunt?</p>
+                        <br>
+                        <p class="margin-none">
+                            <span class="label bg-gray-dark">New</span>
+                            <span class="label label-grey-200">WordPress</span>
+                            <span class="label label-grey-200">Beginner</span>
+                        </p>
+                    </div>
+                </modal>
+            </div>
+            <!-- <a   ng-if="data.expanded" ng-click="data.expanded = false"><strong><i class="fa fa-angle-down"></i></strong></a>
+                <a   ng-if="!data.expanded" ng-click="data.expanded = true"><i class="">details</i></a>-->
+        </div>
+    </div>
+    <style>
+        .ibox-content {
+            background-color: #ffffff;
+            color: inherit;
+            padding: 15px 20px 20px 20px;
+            border-color: rgba(66, 85, 99, 0);
+            border-image: none;
+            border-style: solid solid none;
+            border-width: 1px 0;
+        }
+
+        .ibox-content {
+            clear: both;
+        }
+
+        *, :after, :before {
+            box-sizing: inherit;
+        }
+
+        * {
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+        }
+
+        *, :after, :before {
+            box-sizing: border-box;
+        }
+
+        div {
+            display: block;
+        }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            padding: 10px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #e2e9e6;
+        }
+
+        .text-subhead, .text-subhead-2, .jumbotron p {
+            font-size: 1.15rem;
+            font-weight: 400;
+            line-height: 1.84rem;
+        }
+
+    </style>
+    <style>
+        .vote-actions {
+            font-weight: 600;
+        }
+
+        .vote-actions {
+            float: left;
+            width: 30px;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        div {
+            display: block;
+        }
+
+        .vote-info a {
+            margin-right: 10px;
+        }
+
+        .vote-info, .vote-info a {
+            color: #337ab7;
+            font-size: 12px;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a {
+            /* color: #337ab7;*/
+            text-decoration: none;
+        }
+
+        a {
+            background-color: transparent;
+        }
+
+        .vote-info, .vote-title {
+            margin-left: 45px;
+        }
+
+        .vote-title {
+            display: block;
+            color: inherit;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 5px;
+            margin-bottom: 2px;
+        }
+
+        .fa {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transform: translate(0, 0);
+        }
+
+        .vote-icon {
+            text-align: right;
+            font-size: 38px;
+            display: block;
+            /*color: #e8e9ea;*/
+        }
+
+        .vote-item:hover {
+            /* background: #fbfbfb;*/
+        }
+
+        .vote-item {
+            padding: 20px 25px;
+            background: #ffffff;
+
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        div {
+            display: block;
+        }
+
+    </style>
+    <style>
+        .wrapper-content {
+            padding: 20px 10px 40px;
+        }
+
+        .wrapper {
+            padding: 0 20px;
+        }
+
+        .fadeInRight {
+            -webkit-animation-name: fadeInRight;
+            animation-name: fadeInRight;
+        }
+
+        .animated {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            z-index: 100;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        div {
+            display: block;
+        }
+
+
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+</div>

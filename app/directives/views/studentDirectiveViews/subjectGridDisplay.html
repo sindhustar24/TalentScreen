@@ -1,0 +1,50 @@
+<div class="item col-xs-12 col-sm-6 col-lg-4"  data-ng-repeat="data in logEventFilter = (dataNew | orderBy:orderByValue | filter:test | limitTo:limit)">
+    <div class="contact-box">
+        <a href="profile.html">
+            <div class="col-sm-4">
+                <div  class="text-center">
+                    <img alt="image" class="img-circle m-t-xs img-responsive" src="/assets/images/people/50/child-1.jpg">
+                    <div class="m-t-xs font-bold">
+                        <a href="#">
+                            <i class="fa fa-thumbs-up" title="like" ng-click="like()"> </i>
+                        </a>
+                        <div title="No of people liked">32</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <h3><strong>{{data.name}}</strong></h3>
+                <p><i class="fa fa-map-marker"></i>{{data.date|date}}</p>
+                <address>
+                    <strong>Twitter, Inc.</strong><br>
+                    795 Folsom Ave, Suite 600<br>
+                    San Francisco, CA 94107<br>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+        </div>
+<style>
+    .contact-box {
+        background-color: #ffffff;
+        border: 1px solid #e7eaec;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    div {
+        display: block;
+    }
+    .text-center {
+        text-align: center;
+    }
+</style>
+<footer class="footer">
+    <footer></footer>
+</footer>

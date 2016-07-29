@@ -1,0 +1,72 @@
+<student-dashboard></student-dashboard>
+
+<div class="container" data-ng-controller="democodingQuizController">
+    <div class="page-section">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="panel panel-default" ng-hide="questioncountshow" style=" border-color:lightcyan;">
+
+
+                    <!--<div class="" id="codingfirstrow">
+                        <div class=""  style="padding-left: 28px;"><p class="text-headline margin-none "style="font-weight:bold;font-size: 18px;"></p>
+                        </div>
+                        <div class="   hidden-sm-down" ><p class="text-headline margin-none " style="font-weight:bold;font-size: 18px;"></p>
+                        </div>
+                        <div class=" "align="center" ><p class="text-headline margin-none " style="font-weight:bold;font-size: 18px;">Coding Quiz Demo</p>
+                        </div>
+                    </div>
+
+-->
+                    <div class="media">
+                        <h4 class=" " align="center"><p class="text-headline  " style="font-weight:bold;color: #1b93f3;
+                                                        height: 26px;
+                                                        margin-top: 10px;">CODING QUIZ DEMO</p>
+                        </h4>
+
+                    </div>
+
+
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="row" data-toggle="isotope">
+                        <div class="item col-xs-12 col-lg-12" style="top: -20px;">
+                            <div class="" data-z="0.5" style="margin-top: 0px;">
+
+                                <div class="panel-body" ng-show="countDown">
+
+                                <div class="text-center text-headline text-red-1000" style="color: #00635a;font-family: FontMfizz;font-size: 30px;">
+                                        <blink data-speed="500"><strong style="text-shadow: 0 0 0.9em #87F, 0 0 0.9em #87F,0 0 0.2em #87F">{{counter}}</strong></blink>
+                                    </div>
+                                    <div class="panel-footer text-right">
+                                        <button ng-click="cancelQuiz()" class="btn btn-warning paper-shadow relative"
+                                                data-z="0" data-hover-z="1" data-animated href="#"> Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 20px">
+                                    <democoding-quiz></democoding-quiz>
+                                    <!-- <choice-quiz></choice-quiz>-->
+                                    <quiz-results></quiz-results>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-3 hidden-xs">
+                <student-side-menu></student-side-menu>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

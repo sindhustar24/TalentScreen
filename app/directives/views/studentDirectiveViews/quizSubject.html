@@ -1,0 +1,42 @@
+
+<div class="panel-body" ng-show="quizSubject">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" style="font-size:large;font-family: FontAwesome; color:black;font-weight: bolder;">Select Subject</label>
+        <div class="col-sm-9">
+       <!-- <label class="control-label" for="Subject">select Subject</label>-->
+
+            <ui-select ng-model="subjectitemselected" search-enabled="searchSubjectDropdown"  ng-change="selectSubjectChanged({{$select.selected}})" theme="select2" class="form-control" title="Choose a Subject">
+                <ui-select-match placeholder="Type here to search subject">{{$select.selected.name}}</ui-select-match>
+                
+                <ui-select-choices repeat="item in subjects | filter: $select.search">
+                    <span ng-bind-html="item.name | highlight: $select.search"></span>
+                </ui-select-choices>
+            </ui-select>
+
+
+        </div>
+
+    </div>
+    <!--<div class="form-group">
+        <label class="col-sm-3 control-label" style="font-size:large;font-family: FontAwesome; color:green;font-weight: bolder;">Select Subject</label>
+        <div class="col-sm-9">
+            <select name="selectSubject" ng-model="selectSubject"
+                    ng-change="selectSubjectChanged()" class="form-control input-lg select2"
+                    data-live-search="true" data-size="5">
+                <option ng-repeat="subject in subjects" value="{{subject.id}}">
+                    {{subject.name}}
+                </option>
+            </select>
+        </div>
+    </div>-->
+</div>
+
+<footer class="footer">
+    <footer></footer>
+</footer>
+
+
+
+
+

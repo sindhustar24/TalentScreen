@@ -1,0 +1,206 @@
+
+<div class="ibox-content">
+    <div class="row m-b-sm m-t-sm">
+    <div class="col-md-12">
+         <div class="pull-right">
+        <a ui-sref="website-student.take-challange-quiz" class="btn btn-info btn-xs"> New Challange </a>
+         </div>
+    </div>
+    </div>
+    <div class="row m-b-sm m-t-sm" style="padding-top: 6px;">
+       <div class="col-md-2">
+            <div class="pull-left">
+            <button type="button" id="loading-example-btn" class="btn btn-white btn-sm" ng-click="reFresh()"><i class="fa fa-refresh"></i> Refresh</button>
+       </div>
+    </div>
+        <div class="col-sm-5">
+            <div class="pull-left">
+                <div class="dataTables_length" id="DataTables_Table_0_length">No of items <label><select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm" ng-change="countChange()" ng-model="selectCount"><option data-ng-repeat="item in count" value="{{item.id}}">{{item.name}}</option></select></label> </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-4">
+            <div class="pull-right">
+                <div class="input-group">
+                    <input type="text" ng-model="searchTable" placeholder="Search" class="input-sm form-control">
+                    <span class="input-group-btn"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="pull-right">
+                <a type="button" class="btn btn-sm btn-white" ng-click="settings()"> <i class="fa fa-cogs fa-spin"></i> </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row m-b-sm m-t-sm" ng-show="toggle">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label" >Subject</label>
+                <ui-select ng-model="subjectitemselected"  ng-change="subjectChange({{$select.selected}})" theme="select2" class="form-control" title="Choose a Subject">
+                    <ui-select-match placeholder="Select or search a subject in the list...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item in subjectData | filter: $select.search">
+                        <span ng-bind-html="item.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label" >QuizType</label>
+
+                <ui-select ng-model="quizitemseletd"  theme="select2" class="form-control" title="Choose a Quiz" ng-change="quizChange({{$select.selected}})">
+                    <ui-select-match placeholder="Select or search a quiz in the list...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item in quizTypes | filter: $select.search">
+                        <span ng-bind-html="item.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default paper-shadow" data-z="0.5">
+        <div class="row m-b-sm m-t-sm">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table text-subhead v-middle">
+                        <thead id="head">
+                        <tr>
+                            <th class="width-20 text-center #">#</th>
+                            <th class="width-20 text-center subjectName" ng-click="sort('subject')">Subject<span
+                                    class="glyphicon sort-icon" ng-show="sortKey=='subject'"
+                                    ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th class="width-20 text-center" ng-click="sort('quiz')">Type<span
+                                    class="glyphicon sort-icon" ng-show="sortKey=='quiz'"
+                                    ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th class="width-20 text-center" ng-click="sort('date')">Date<span
+                                    class="glyphicon sort-icon" ng-show="sortKey=='date'"
+                                    ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th class="width-20 text-center visible-lg">Completed</th>
+                            <th class="width-20 text-center visible-lg">Public</th>
+                            <th class="width-20 text-center">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat-start="myChalleneData in challengessData | filter:paginate | orderBy:sortKey:reverse  |filter:searchTable">
+                            <td style="vertical-align: middle;"> <a   ng-if="myChalleneData.expanded" ng-click="myChalleneData.expanded = false"><i class="fa fa-angle-down"></i></a>
+                                <a   ng-if="!myChalleneData.expanded" ng-click="myChalleneData.expanded = true"><i class="fa fa-angle-right"></i></a></td>
+                            <td style="vertical-align: middle;">{{myChalleneData.subject}}</td>
+                            <td class="text-center" style="vertical-align: middle;">{{myChalleneData.quiz}}</td>
+                            <td class="text-center" style="vertical-align: middle;"><span class="label label-primary">{{myChalleneData.date}}</span></td>
+                            <td class="text-center visible-lg" style="vertical-align: middle;"> <div class="progress progress-mini" style="margin-right: 2px">
+                                <div  ng-style="{ 'width': myChalleneData.totalTimeTaken/myChalleneData.totaltime *100+ '%'}" class="progress-bar" style="color: black">{{(myChalleneData.totalTimeTaken/myChalleneData.totaltime*100)%100 | number:0}}%</div>
+                            </div></td>
+                            <td class="visible-lg" style="vertical-align: middle;"><div class="btn-group">
+                                <span class="onoffswitch" ng-show="{{myChalleneData.public_views.status}}"><input type="checkbox" checked="checked" name="start_interval" class="onoffswitch-checkbox" id="{{myChalleneData.quizid}}"><label class="onoffswitch-label" for="{{myChalleneData.quizid}}"><span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span><span class="onoffswitch-switch"></span></label></span>
+                                <span class="onoffswitch" ng-show="{{!myChalleneData.public_views.status}}"><input type="checkbox"  name="start_interval" class="onoffswitch-checkbox" id="{{myChalleneData.quizid}}"><label class="onoffswitch-label" for="{{myChalleneData.quizid}}"><span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span><span class="onoffswitch-switch"></span></label></span>
+                            </div></td>
+                            <td style="vertical-align: middle;"><button type="button" class="btn btn-white btn-sm" ng-click="view()"><i class="fa fa-pencil"></i></button>
+                                <a  class="btn btn-white btn-sm"><i class="fa fa-times"></i></a> </td>
+
+                        </tr>
+                        <tr ng-if="myChalleneData.expanded" ng-repeat-end="">
+                            <td colspan="9">
+                                <table class="table text-subhead v-middle">
+                                    <tr>
+                                        <td style="width:100%">
+                                            <div class="ibox-content" style="background-color: white">
+                                            <div class="row m-b-sm m-t-sm">
+                                                <div class="col-md-4">
+
+                                                    <nvd3 options='options' data='myChalleneData.pieData'></nvd3></div>
+
+                                                <div class="col-md-8">
+                                                    <nvd3 options='options1' data='myChalleneData.pieData2'></nvd3>
+                                                </div>
+                                            </div>
+                                            <div class="row m-b-sm m-t-sm">
+                                                <div class="col-md-3">
+                                                   Total Questions
+                                                </div>
+                                                <div class="col-md-3">{{myChalleneData.questions.length}}</div>
+                                                <div class="col-md-3">
+                                                    Date
+                                                </div>
+                                                <div class="col-md-3">{{myChalleneData.date}}</div>
+                                            </div>
+                                            <div class="row m-b-sm m-t-sm">
+                                                <div class="col-md-3">
+                                                    Public
+                                                </div>
+                                                <div class="col-md-3"><span class="onoffswitch" ng-show="{{myChalleneData.public_views.status}}"><input type="checkbox" checked="checked" name="start_interval" class="onoffswitch-checkbox" id="{{myChalleneData.quizid}}"><label class="onoffswitch-label" for="{{myChalleneData.quizid}}"><span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span><span class="onoffswitch-switch"></span></label></span>
+                                                    <span class="onoffswitch" ng-show="{{!myChalleneData.public_views.status}}"><input type="checkbox"  name="start_interval" class="onoffswitch-checkbox" id="{{myChalleneData.quizid}}"><label class="onoffswitch-label" for="{{myChalleneData.quizid}}"><span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span><span class="onoffswitch-switch"></span></label></span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    Subject
+                                                </div>
+                                                <div class="col-md-3">{{myChalleneData.subject}}</div>
+                                            </div>
+                                            <div class="row m-b-sm m-t-sm">
+                                                <div class="col-md-3">
+                                                    Qiuz Type
+                                                </div>
+                                                <div class="col-md-3">{{myChalleneData.quiz}}</div>
+                                                <div class="col-md-3">
+                                                    Total Attempted
+                                                </div>
+                                                <div class="col-md-3">{{myChalleneData.atempted}}</div>
+                                                </div>
+                                            <div class="row m-b-sm m-t-sm">
+                                                <div class="col-md-3">
+                                                   Completed
+                                                </div>
+                                                <div class="col-md-3"><div style="width: 75%"><div  ng-style="{ 'width': myChalleneData.totalTimeTaken/myChalleneData.totaltime *100+ '%'}" class="progress-bar" style="color: black">{{(myChalleneData.totalTimeTaken/myChalleneData.totaltime*100)%100 | number:0}}%</div></div></div>
+                                                <div class="col-md-3">
+                                                    Location
+                                                </div>
+                                                <div class="col-md-3">{{myChalleneData.location}}</div>
+
+                                            </div>
+                                                <div class="row m-b-sm m-t-sm"><div class="col-md-3">
+                                                    Qiuz Level
+                                                </div>
+                                                    <div class="col-md-3">{{myChalleneData.quizlevel}}</div>
+                                                    <div class="col-md-3">
+                                                        <a ui-sref="website-student.take-challange-quiz" class="btn btn-info btn-xs"> more details </a>
+
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <a ng-click="showVideo()"><i>view</i></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default paper-shadow" data-z="0.5">
+        <div class="row m-b-sm m-t-sm">
+            <div class="col-sm-4">
+                <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite" style="margin-top: 26px;margin-left: 10px;">Showing {{begin}} to {{end}} of {{totalItems}} entries</div>
+            </div>
+            <div class="col-sm-8">
+                <pagination align="left" total-items="totalItems" ng-model="currentPage"
+                            max-size="2" boundary-links="true"
+                            items-per-page="numPerPage" class="pagination-sm" >
+                </pagination>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,50 @@
+<div class="page-section">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="ibox-content">
+                <div class="row m-b-sm m-t-sm">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-sm-3">
+                        <div class="pull-right">
+                            <a type="button" class="btn btn-sm btn-blue" title="Filters" ng-click="filter()" style="border: solid 1px rgba(0, 184, 212, 0.31)"> <i class="fa fa-cogs fa-spin"></i> </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="pull-left">
+                            <div class="input-group">
+                                <p><input type="text" class="form-control"  placeholder="search subject" ng-model="test" style="background-color: white;border: solid 1px rgba(0, 184, 212, 0.31);height: 29px;"></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-b-sm m-t-sm" ng-show="toggle">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label class="control-label" >Category</label>
+                            <ui-select ng-model="subjectitemselected" search-enabled="false"  ng-change="category({{$select.selected}})" theme="select2" class="form-control" title="Choose a Subject">
+                                <ui-select-match placeholder="Select or search a subject in the list...">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in dataNewCat | filter: $select.search">
+                                    <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label class="control-label" >Sort</label>
+                            <ui-select ng-model="quizitemseletd" search-enabled="false" theme="select2" class="form-control" title="Choose a Quiz" ng-change="popularitys({{$select.selected}})">
+                                <ui-select-match placeholder="Sort the subject in the list...">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in dropdown | filter: $select.search">
+                                    <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<top-sign-nav></top-sign-nav>
+
+<div class="row" data-ng-controller="fbcontroller">
+    <div class="col-md-6 col-md-offset-3 col-lg-offset-3 col-lg-6 col-sm-10 col-sm-offset-2 col-xs-12 text-center">
+        <div id="signup-intro"><h1>Log In</h1></div>
+        <div class="background-line">
+            <h4 id="candidateonly">CANDIDATE ONLY</h4>
+        </div>
+        <div class="sms-signup text-center" id="signup"  ng-hide="signUpForm">
+            <a href="#" ng-click="authenticate('github')" class="btn btn-block btn-lg btn-social btn-github">
+                <i class="fa fa-github"></i>Log In with Github
+            </a>
+            <a href="#"  ng-click="authenticate('facebook')" class="btn btn-block btn-lg btn-social btn-facebook">
+                <i class="fa fa-facebook"></i>Log In with Facebook
+            </a>
+            <a href="#" ng-click="authenticate('google')" class="btn btn-lg btn-block btn-social btn-google">
+                <i class="fa fa-google"></i>Log In with Google
+            </a>
+            <a href="#" ng-click="authenticate('linkedin')" class="btn btn-lg btn-block btn-social btn-linkedin">
+                <i class="fa fa-linkedin"></i>Log In with LinkedIn
+            </a>
+            <!--<a ng-click="authenticate('twitter')" class="btn btn-lg btn-block btn-social btn-twitter">-->
+            <!--<i class="fa fa-twitter"></i>Twitter-->
+            <!--</a>-->
+        </div> <!-- end of sms-signu -->
+        <div class="background-line">
+            <h4 id="employerorcandidate">EMPLOYER OR CANDIDATE <h6 style="color: #00cee6">(*Not recommended for candidate)</h6></h4>
+        </div>
+        <div class="email-signup text-left">
+            <form  id="mySigninForm" name="mySigninForm" ng-submit="submit()">
+                <div  class="inner-addon left-addon" ng-class="{ 'error' : mySigninForm.username.$invalid}">
+                    <i class="fa fa-user"></i>
+                    <input type="text" id="username" name="username" minlength="3" class="form-control" ng-click="loginmessage=false" ng-model="username" placeholder="User Name" required email-validation>
+                </div>
+                <br>
+                <div class="help-inline">
+                    <span ng-show="!!mySigninForm.username.$error.isBlank">Email Required</span>
+                    <span ng-show="!!mySigninForm.username.$error.invalidChars">Invalid Email Address</span>
+                </div>
+                <div ng-class="{ 'error' : mySigninForm.password.$invalid}" class="inner-addon left-addon">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" id="password" name="password" class="form-control" ng-click="loginmessage=false" ng-model="password" placeholder="Password" required password-check>
+                </div><br>
+                <div class="help-inline">
+                    <span ng-show="!!mySigninForm.password.$error.isBlank">Password Required</span>
+                    <span ng-show="!!mySigninForm.password.$error.invalidLen">Invalid Password</span>
+                </div><br/>
+                <label id="loginmessage" style="color:red; text-align: center" name="loginmessage" class="form-control" ng-show="loginmessage"> Credentials are not valid</label>
+                <!--<div>-->
+                <!--<input type="submit" class="btn btn-block btn-lg btn-social btn-signup" ng-click="emplogin()" value="Login with Talentscreen">-->
+                <!--</div>-->
+                <div class="text-center">
+                    <a class="btn btn-primary" type="submit" ng-click="emplogin()">Login with Talentscreen <i class="fa fa-fw fa-unlock-alt"></i></a>
+                </div>
+            </form><br>
+            <div align="center">
+            <a ui-sref="forgot" style="text-decoration:none;">Forgot password?</a>
+            <a ui-sref="emailActive" style="text-decoration:none"> - Didn't receive activation email?</a></div>
+            <br><br><br>
+        </div><!--end of email signup -->
+    </div><!--end of col -->
+</div> <!--end of row -->
+
+
+
+
+
+<footer class="footer">
+    <footer></footer>
+</footer>

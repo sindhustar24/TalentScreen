@@ -1,0 +1,61 @@
+
+<div class="panel panel-default paper-shadow" data-z="0.5" data-ng-repeat="data in dataNew | orderBy:'studentscount'| limitTo: limit" ng-hide="popularity">
+    <div class="panel-body">
+        <div class="media media-clearfix-xs">
+            <div class="media-left text-center">
+                <div class="cover width-150 width-100pc-xs overlay cover-image-full hover margin-v-0-10">
+                    <span class="img icon-block height-130 bg-primary"></span>
+                     <span class="overlay overlay-full padding-none icon-block bg-primary">
+         <span class="v-center">
+             <i class="{{data.icon_class}}"></i>
+         </span>
+                     </span>
+                    <a ui-sref="website-courses.single" class="overlay overlay-full overlay-hover overlay-bg-white">
+                         <span class="v-center">
+             <span class="btn btn-circle btn-primary btn-lg"><i class="fa fa-graduation-cap"></i></span>
+                         </span>
+                    </a>
+                </div>
+            </div>
+            <div class="media-body">
+                <h4 class="text-headline margin-v-5-0"><a ui-sref="website-courses.single">{{data.name}}</a></h4>
+                <p class="small">
+                    <span class="badge">{{data.counts}}</span>
+                    <!--{{data.counts}}-->
+                    <!--<span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>-->
+                </p>
+                <p>{{data.description}}</p>
+                <hr class="margin-v-8" />
+                <!-- <h4><a href="">Number of Quizzes done in these subject {{data.counts}}</a>
+                     <br/>
+                 </h4>-->
+                <h5><i class="glyphicon glyphicon-check" style="font-size:20px;color: greenyellow">
+                    <span class="badge pull-right"> {{data.choicequiz}}</span></i>
+                    <i class="glyphicon glyphicon-edit" style="font-size:20px;color: orange;padding-left: 5%">
+                        <span class="badge pull-right"> {{data.codingquiz}}</span></i>
+                    <i class="fa fa-video-camera" style="font-size:20px;color: #00cee6;padding-left: 5%" ng-hide="video">
+                        <span class="badge pull-right"> {{data.videoquiz}}</span></i> </h5>
+                <!--<div class="media v-middle">
+                    <div class="media-left">
+                        <img src="images/people/50/guy-9.jpg" alt="People" class="img-circle width-40" />
+                    </div>
+                    <div class="media-body">
+                        <h4><a href="">mahipasha</a>
+                            <br/>
+                        </h4>
+                        Instructor
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <footer></footer>
+</footer>
+

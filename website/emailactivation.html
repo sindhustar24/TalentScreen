@@ -1,0 +1,90 @@
+<!--
+<top-nav-bar></top-nav-bar>
+<div id="content" data-ng-controller="fbcontroller">
+    <div class="container-fluid">
+        <div class="lock-container" style="width: 500px;padding-top: 20%">
+            <div class="panel panel-default text-center paper-shadow" data-z="0.5">
+                <div class="panel-body">
+                    <h4 align="left"><strong>Didn't get the activation email?</strong></h4>
+                    <hr>
+                    <P>Use the form below to resend the email to activate your <span style="color: #42a5f5">TalentScreen</span> account, if you didn't receive it within 5 minutes after signing up for <span style="color: #42a5f5">TalentScreen</span></p>
+                    <br/>
+           <form id="Form" name="Form">
+                    <div class="form-group form-control-material" ng-hide="emailActiveDiv"  ng-class="{ 'has-error' : Form.emailAddress.$invalid && !Form.emailAddress.$pristine }">
+                        <input type="text" class="form-control ng-touched ng-dirty ng-invalid ng-valid-email ng-invalid-required" id="emailActive" placeholder="  Email" ng-model="emailActive" required>
+                        <span class="ma-form-highlight"></span><span class="ma-form-bar"></span>
+                        <label for="emailActive">Email</label>
+                    </div>
+            </form>
+                    <div class="form-group form-control-material" ng-hide="emailCodeDiv">
+                        <input type="text" class="form-control" id="emailCode" placeholder="Activation Code" ng-model="emailCode" required>
+                        <span class="ma-form-highlight"></span><span class="ma-form-bar"></span>
+                        <label for="emailCode">Activation Code</label>
+                    </div>
+                    <div align="right" ng-hide="enterDiv">
+                        <a class="btn btn-primary" type="submit" ng-click="enter()">Enter </a>
+                    </div>
+                    <div align="right" ng-hide="emailActiveSubmitDiv">
+                        <a class="btn btn-primary" type="submit" ng-click="emailActiveSubmit()">Resend activation email </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</diV>
+<footer class="footer">
+    <footer></footer>
+</footer>
+&lt;!&ndash;
+<style>
+    /* active state */
+    input:focus ~ label, input:valid ~ label        {
+        top:-20px;
+        font-size:14px;
+        color:#42a5f5;
+    }
+</style>&ndash;&gt;
+-->
+
+<top-nav-bar></top-nav-bar>
+<div id="content" data-ng-controller="fbcontroller">
+    <div class="container-fluid">
+        <div class="lock-container" style="width: 500px;padding-top: 20%">
+            <div class="panel panel-default text-center paper-shadow" data-z="0.5">
+                <div class="panel-body">
+                    <h4 align="left"><strong>Didn't get the activation email?</strong></h4>
+                    <hr>
+                    <P>Use the form below to resend the email to activate your <span style="color: #42a5f5">TalentScreen</span> account, if you didn't receive it within 5 minutes after signing up for <span style="color: #42a5f5">TalentScreen</span></p>
+                    <br/>
+                    <form name="emailactivation">
+                        <div class="form-group form-control-material" ng-hide="emailActiveDiv">
+                            <input type="text" class="form-control" id="emailActive" placeholder="  Email" name="emailActive" ng-model="emailActive" ng-keypress="forgoterrorshow=false" required email-validation>
+                            <span class="ma-form-highlight"></span><span class="ma-form-bar"></span>
+                            <label for="emailActive">Email</label>
+                        </div><br>
+                        <label ng-show="forgoterrorshow" style="color:red">{{forgoterror}}</label>
+                        <div class="help-inline">
+                            <span ng-show="!!emailactivation.emailActive.$error.isBlank">Email Required</span>
+                            <span ng-show="!!emailactivation.emailActive.$error.invalidChars">Invalid Email Address</span>
+                        </div>
+                        <div class="form-group form-control-material" ng-hide="emailCodeDiv">
+                            <input type="text" class="form-control" id="emailCode" placeholder="Activation Code" ng-model="emailCode" required>
+                            <span class="ma-form-highlight"></span><span class="ma-form-bar"></span>
+                            <label for="emailCode">Activation Code</label>
+                        </div>
+                        <div align="right" ng-hide="enterDiv">
+                            <a class="btn btn-primary" type="submit" ng-click="enter()">Enter </a>
+                        </div>
+                        <div align="right" ng-hide="emailActiveSubmitDiv">
+                            <a class="btn btn-primary" type="submit" ng-click="emailActiveSubmit()">Resend activation email </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</diV>
+<footer class="footer">
+    <footer></footer>
+</footer>
+

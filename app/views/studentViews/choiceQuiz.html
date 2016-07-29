@@ -1,0 +1,135 @@
+<student-dashboard></student-dashboard>
+
+<div class="container" data-ng-controller="choiceQuizController" style="height: 20px;">
+
+    <div class="page-section">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="panel panel-default" ng-show="choiceHeader">
+                    <div class="media v-middle">
+                        <div class="media-left">
+                            <div class="bg-blue-400 text-white">
+                                <div class="panel-body">
+                                    <i class="fa fa-puzzle-piece fa-fw fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-body" align="center">
+                            <h4 class="text-headline margin-none"
+                                style="padding-bottom: 15px; font-family: FontAwesome;color: #42a5f5;font-weight: bolder;">
+                               CHOICE QUIZ</h4>
+                        </div>
+                        <div class="media-right">
+                            <div class="text-right text-headline text-red-1000">
+                                <h4 style="padding-right: 20px;font-family: FontAwesome; color:#42a5f5;font-weight: bolder;text-align: center">
+                                    <strong>{{subjectName}}</strong></h4></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-toggle="isotope">
+                    <div class="col-xs-12 col-lg-12">
+                        <div class="panel panel-default paper-shadow" data-z="0.5" style="margin-top:-11px;">
+                            <quiz-subject></quiz-subject>
+                            <quiz-level></quiz-level>
+                            <div class="panel-body" ng-show="quizStartAccepted">
+                                <ul class="list-group">
+                                    <li class="list-group-item media v-middle">
+                                        <div class="media-body"
+                                             style="font-family: arial,sans-serif; font-size: 1.0rem ; color: forestgreen">
+                                            <p class="text-justify">
+                                                This timed multiple-choice quiz contains 15
+                                                questions. For each question there is correct answer and three incorrect
+                                                answers. Every question has a timer attached.
+                                                Timer countdown can change on question. It is not possible to stop the
+                                                timer and start it again. Once the timer countdown is finished, the quiz
+                                                moves to next question. Once all the
+                                                questions are finished, quiz results will be submitted to the
+                                                application.
+                                            </p>
+                                            <p class="text-center lead"style="font-size:1.0rem;font-family: arial,sans-serif;">Check the check box to agree & click appropirate
+                                                button to Continue!!!</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                               <!-- <div>
+                                    <label><input style="color: #0a2ffe;float: left; margin-top: 4px;vertical-align: middle;position: relative;bottom: 1px;right: 2px;" type="checkbox" ng-click="toggle()"><span style="color: blue">I agree to the terms and conditions</span><br></label>
+                                </div>--><!--<div>
+                                <input style="color: #0a2ffe" type="checkbox" name="vehicle" value="Bike" ng-click="toggle()"><span style="color: blue">I agree to the terms and conditions</span><br>
+                            </div>-->
+                                <div>
+                                    <label><input style="color: #42a5f5;float: left; margin-top: 4px;vertical-align: middle;position: relative;bottom: 1px;right: 2px;" type="checkbox" ng-click="toggle()"><span style="color: #2196f3">I agree to the terms and conditions.</span><br></label>
+                                </div>
+                                <div ng-hide="myVar" class="panel-footer text-right">
+                                    <button class="btn btn-primary paper-shadow relative" data-z="0" data-hover-z="1"
+                                            data-animated ui-sref="website-student.demoChoiceQuiz"> Demo
+                                    </button>
+                                    <button  class="btn btn-warning paper-shadow relative"
+                                            data-z="0" data-hover-z="1" data-animated
+                                            ui-sref="website-student.tour4Choice">Take Tour
+                                    </button>
+                                    <button ng-click="startQuiz()" class="btn btn-success paper-shadow relative"
+                                            data-z="0" data-hover-z="1" data-animated ui-sref="#"> Start
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="panel-body" ng-show="countDown">
+                                <div class="text-center text-headline text-red-1000"
+                                     style="color: #00635a;font-family: FontMfizz;font-size: 30px;">
+                                    <circular-progress
+                                            value="timer.value"
+                                            max="timer.max"
+                                            iterations="{{timer.iterations}}"
+                                            animation="{{timer.animation}}"
+                                            label="{{timer.label}}"
+                                            ></circular-progress>
+                                    <!--<blink data-speed="500"><strong
+                                            style="text-shadow: 0 0 0.9em #87F, 0 0 0.9em #87F,0 0 0.2em #87F">{{counter}}</strong>
+                                    </blink>-->
+                                </div>
+                                <div class="media">
+                                    <div class="media-center"  ng-controller="TimerCtrl as timer">
+                                        <!--<circular-progress></circular-progress>
+                                        <circular-progress
+                                            value="50"
+                                            max="120"
+                                            orientation="1"
+                                            radius="80"
+                                            stroke="20"
+                                            base-color="#ffff00"
+                                            progress-color="#00ff00"
+                                            iterations="100"
+                                            animation="easeInOutCubic"
+                                        ></circular-progress>-->
+                                        <!-- Note that value and max MUST NOT use the {{ }} notation -->
+
+
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-right">
+                                    <button ng-click="cancelQuiz()" class="btn btn-warning paper-shadow relative"
+                                            data-z="0" data-hover-z="1" data-animated href="#"> Cancel
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row" data-toggle="isotope">
+                                <div class="col-xs-12 col-lg-12">
+                                    <div  ng-show="morediv" data-z="0.5">
+                                        <choice-quiz></choice-quiz>
+                                        <!--<quiz-results></quiz-results>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <br/>
+                <br/>
+            </div>
+            <div class=" col-md-3 col-xs-12">
+                <student-side-menu ng-show="sidemenu"></student-side-menu>
+            </div>
+        </div>
+    </div>
+</div>
